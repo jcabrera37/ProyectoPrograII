@@ -212,7 +212,8 @@ public final class frmRoles extends javax.swing.JFrame {
     }//GEN-LAST:event_jcbRolMouseClicked
 
     private void jbtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEditarActionPerformed
-        // TODO add your handling code here:
+        actualizarRegistro();
+        mostrarDatos();
     }//GEN-LAST:event_jbtnEditarActionPerformed
 
     private void jbtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirActionPerformed
@@ -325,41 +326,7 @@ public final class frmRoles extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, e);
         }
         
-         /*
-        
-        
-        try {
-          Class.forName("com.mysql.jdbc.Driver");
- 
-          
-            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sistemabd","root",""); 
-                    
-                    PreparedStatement ps = conn.prepareStatement(query))
-                {
-                ResultSet rs = ps.executeQuery();
-                DefaultTableModel tm = (DefaultTableModel)tablaRoles.getModel();
-                tm.setRowCount(0);
-                
-                while(rs.next()){
-                    Object o[] = {rs.getInt("id_rol"), rs.getString("nombre"),rs.getString("status"),  
-                         };
-                                  
-                      
-                }
-                
-                JOptionPane.showConfirmDialog(null, "Datos actualizados!",
-                        "Result", JOptionPane.DEFAULT_OPTION,
-                        JOptionPane.PLAIN_MESSAGE);
-                
-            }//fin try
 
-    }//fin try
-    catch (HeadlessException | ClassNotFoundException | SQLException e1)
-    {
-        System.out.println("Exception:" + e1);
-    }//fin catch
-
-        */
     }//fin metodo mostrar
    
     //LIMPIAR MODELO
@@ -376,7 +343,30 @@ public final class frmRoles extends javax.swing.JFrame {
         txtDescrip.requestFocus();
     }
     
-  
+
+    //ACTUALIZAR UN REGISTRO
+    public void actualizarRegistro(){
+        int id = Integer.parseInt(lbl_id.getText());
+        String nombre;
+        String  rol;
+        
+        nombre = txtDescrip.getText();
+        rol = jcbRol.getSelectedItem().toString();
+        
+        String sql = "UPDATE rol SET nombre  = '"+ nombre +"' WHERE id_rol =" + id;
+        JOptionPane.showMessageDialog(rootPane, sql);
+        try {
+                    con = cn.getConection();
+                    st = con.createStatement();
+                    st.executeUpdate(sql);
+                    JOptionPane.showMessageDialog(null, "Usuario actualizado correctamente");
+                    
+                    
+                } catch (HeadlessException | SQLException e) {
+                    
+                }
+        limpiarModelo();
+    }
     
     
     public static void main(String args[]) {
