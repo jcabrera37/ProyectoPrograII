@@ -124,7 +124,7 @@ public final class frmRoles extends javax.swing.JFrame {
             }
         });
 
-        jbtnGuardarr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/add.png"))); // NOI18N
+        jbtnGuardarr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/add.png"))); // NOI18N
         jbtnGuardarr.setText("Guardar");
         jbtnGuardarr.setPreferredSize(new java.awt.Dimension(100, 40));
         jbtnGuardarr.addActionListener(new java.awt.event.ActionListener() {
