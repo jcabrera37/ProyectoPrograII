@@ -116,7 +116,7 @@ public final class frmRoles extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Actualización de Roles");
 
-        jbtnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/delete.png"))); // NOI18N
+        jbtnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/delete.png"))); // NOI18N
         jbtnEliminar.setText("Eliminar");
         jbtnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +133,7 @@ public final class frmRoles extends javax.swing.JFrame {
             }
         });
 
-        jbtnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/update.png"))); // NOI18N
+        jbtnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/update.png"))); // NOI18N
         jbtnEditar.setText("Editar");
         jbtnEditar.setPreferredSize(new java.awt.Dimension(100, 40));
         jbtnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -142,7 +142,7 @@ public final class frmRoles extends javax.swing.JFrame {
             }
         });
 
-        jbtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salir.png"))); // NOI18N
+        jbtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         jbtnSalir.setText("Salir");
         jbtnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
