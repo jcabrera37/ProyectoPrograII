@@ -1,4 +1,3 @@
-
 package formularios;
 
 import clases.ConexionBD;
@@ -168,9 +167,7 @@ public class frmLogin extends javax.swing.JFrame {
              Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
          }
         }
-        
-        
-         
+          
     }//GEN-LAST:event_jbtnIngresarActionPerformed
 
     private void jbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelarActionPerformed
@@ -205,8 +202,6 @@ public class frmLogin extends javax.swing.JFrame {
                }
              
             
-            
-            
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e);
         }
@@ -215,6 +210,10 @@ public class frmLogin extends javax.swing.JFrame {
             {
             rs.close();
             }
+            if(st!=null){
+            st.close();
+            }
+               
         }
             
         
