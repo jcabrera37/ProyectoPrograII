@@ -80,6 +80,11 @@ public final class frmRoles extends javax.swing.JFrame {
                 jcbRolMouseClicked(evt);
             }
         });
+        jcbRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbRolActionPerformed(evt);
+            }
+        });
         jPanel1.add(jcbRol);
 
         tablaRoles.setModel(new javax.swing.table.DefaultTableModel(
@@ -233,6 +238,10 @@ public final class frmRoles extends javax.swing.JFrame {
         limpiarModelo();
         mostrarDatos();
     }//GEN-LAST:event_jbtnEliminarActionPerformed
+
+    private void jcbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbRolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbRolActionPerformed
 
     
     //LIMPIAR TABLA

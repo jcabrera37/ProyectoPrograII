@@ -1,5 +1,7 @@
 package formularios;
 import clases.ConexionBD;
+import clases.Jugador;
+import clases.Usuarios;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -23,8 +25,6 @@ public final class frmUsuarios extends javax.swing.JFrame {
     public frmUsuarios() {
         initComponents();
         mostrarDatos();
-       
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -45,7 +45,7 @@ public final class frmUsuarios extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jcbTipoUsuario = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaRoles = new javax.swing.JTable();
+        tablaUsuarios = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jbtnEliminar = new javax.swing.JButton();
         jbtnGuardarr = new javax.swing.JButton();
@@ -57,45 +57,81 @@ public final class frmUsuarios extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
         jPanel1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jPanel1.setLayout(new java.awt.GridLayout(3, 4, 1, 0));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Nombre:");
-        jPanel1.add(jLabel1);
 
         txtNombre.setMinimumSize(new java.awt.Dimension(6, 35));
-        jPanel1.add(txtNombre);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Apellido:");
-        jPanel1.add(jLabel2);
-        jPanel1.add(txtApellido);
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Usuario");
-        jPanel1.add(jLabel9);
-        jPanel1.add(txtUsuario);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Password");
-        jPanel1.add(jLabel5);
-        jPanel1.add(txtPass);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Estatus");
-        jPanel1.add(jLabel6);
 
-        jcbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jcbEstatus);
+        jcbEstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Desactivado" }));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Tipo de Usuario");
-        jPanel1.add(jLabel11);
 
-        jcbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jcbTipoUsuario);
+        jcbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuario" }));
 
-        tablaRoles.setModel(new javax.swing.table.DefaultTableModel(
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcbEstatus, 0, 223, Short.MAX_VALUE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                        .addComponent(txtApellido)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
+        tablaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -118,12 +154,12 @@ public final class frmUsuarios extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tablaRoles.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaRolesMouseClicked(evt);
+                tablaUsuariosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tablaRoles);
+        jScrollPane1.setViewportView(tablaUsuarios);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -178,20 +214,21 @@ public final class frmUsuarios extends javax.swing.JFrame {
                         .addComponent(lbl_id))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(58, 58, 58)
-                                    .addComponent(jbtnGuardarr, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(73, 73, 73)
-                                    .addComponent(jbtnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(86, 86, 86)
-                                    .addComponent(jbtnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(79, 79, 79)
-                                    .addComponent(jbtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jbtnGuardarr, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(73, 73, 73)
+                                        .addComponent(jbtnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(86, 86, 86)
+                                        .addComponent(jbtnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(79, 79, 79)
+                                        .addComponent(jbtnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 39, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -203,7 +240,7 @@ public final class frmUsuarios extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_id))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -219,13 +256,70 @@ public final class frmUsuarios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnGuardarrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarrActionPerformed
-       
+        Usuarios usuario = new Usuarios();
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        String user = txtUsuario.getText();
+        String pass = txtPass.getText();
+        
+        int tipo = 0;
+        int tipo_rol = 0;
+        
+        if ("Activo".equals(jcbEstatus.getSelectedItem().toString())){
+            tipo = 1;
+        }
+        if ("Desactivado".equals(jcbEstatus.getSelectedItem().toString())){
+            tipo = 0;
+        }
+        if ("Administrador".equals(jcbTipoUsuario.getSelectedItem().toString())){
+            tipo_rol = 1;
+        }
+        if ("Usuario".equals(jcbTipoUsuario.getSelectedItem().toString())){
+            tipo_rol = 2;
+        }
+        usuario.setNombre(nombre);
+        usuario.setApellidos(apellido);
+        usuario.setUsuario(user);
+        usuario.setPass(pass);
+               
+        
+        agregarRegistro(nombre,apellido,user, pass,tipo,tipo_rol);
         mostrarDatos();
         
     }//GEN-LAST:event_jbtnGuardarrActionPerformed
 
     private void jbtnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEditarActionPerformed
-       
+        
+        Usuarios usuario = new Usuarios();
+        String nombre = txtNombre.getText();
+        String apellido = txtApellido.getText();
+        String user = txtUsuario.getText();
+        String pass = txtPass.getText();
+        
+        int tipo = 0;
+        int tipo_rol = 0;
+        
+        if ("Activo".equals(jcbEstatus.getSelectedItem().toString())){
+            tipo = 1;
+        }
+        if ("Desactivado".equals(jcbEstatus.getSelectedItem().toString())){
+            tipo = 0;
+        }
+        if ("Administrador".equals(jcbTipoUsuario.getSelectedItem().toString())){
+            tipo_rol = 1;
+        }
+        if ("Usuario".equals(jcbTipoUsuario.getSelectedItem().toString())){
+            tipo_rol = 2;
+        }
+        usuario.setNombre(nombre);
+        usuario.setApellidos(apellido);
+        usuario.setUsuario(user);
+        usuario.setPass(pass);
+                               
+        actualizarRegistro(nombre,apellido,user, pass,tipo,tipo_rol);
+        
+        
+        
         mostrarDatos();
     }//GEN-LAST:event_jbtnEditarActionPerformed
 
@@ -233,13 +327,18 @@ public final class frmUsuarios extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jbtnSalirActionPerformed
 
-    private void tablaRolesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaRolesMouseClicked
-      int item = tablaRoles.getSelectedRow(); 
+    //seleccionar y mostrar en textbox
+    private void tablaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaUsuariosMouseClicked
+      int item = tablaUsuarios.getSelectedRow(); 
       
-      lbl_id.setText(tablaRoles.getValueAt(item, 0).toString());
-      txtNombre.setText(tablaRoles.getValueAt(item, 1).toString());
+      lbl_id.setText(tablaUsuarios.getValueAt(item, 0).toString());
+      txtNombre.setText(tablaUsuarios.getValueAt(item, 1).toString());
+      txtApellido.setText(tablaUsuarios.getValueAt(item, 2).toString());
+      txtUsuario.setText(tablaUsuarios.getValueAt(item, 3).toString());
+      txtPass.setText(tablaUsuarios.getValueAt(item, 4).toString());
       
-    }//GEN-LAST:event_tablaRolesMouseClicked
+      
+    }//GEN-LAST:event_tablaUsuariosMouseClicked
 
     private void jbtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEliminarActionPerformed
         eliminarRegistro();
@@ -251,7 +350,7 @@ public final class frmUsuarios extends javax.swing.JFrame {
     //LIMPIAR TABLA
     public void limpiarTabla(){
        modelo  = new DefaultTableModel();
-       tablaRoles.setModel(modelo);
+       tablaUsuarios.setModel(modelo);
        
        modelo.addColumn("Id");
        modelo.addColumn("Descripcion");       
@@ -261,7 +360,7 @@ public final class frmUsuarios extends javax.swing.JFrame {
     
      //LIMPIAR MODELO
     public void limpiarModelo(){
-        for (int i = 0; i < tablaRoles.getRowCount(); i++) {
+        for (int i = 0; i < tablaUsuarios.getRowCount(); i++) {
             modelo.removeRow(i);
             i = i - 1;
         }
@@ -273,60 +372,91 @@ public final class frmUsuarios extends javax.swing.JFrame {
         txtNombre.requestFocus();
     }
     
-    
-    /*
-    //AGREGAR REGISTROS
-    public void agregarRegistro(){
-        String tipo = "";
+      //ACTUALIZAR UN REGISTRO
+    public void actualizarRegistro(String nombre, String apellidos, String usuario, String pass, int status, int id_rol){
+        int id = Integer.parseInt(lbl_id.getText());
         
-        String nombre = txtDescrip.getText();
+         String sql_actualizar;
         
-        if ("Administrador".equals(jcbRol.getSelectedItem().toString())){
-            tipo = "Admin";
-        }
-        if ("Usuario".equals(jcbRol.getSelectedItem().toString())){
-            tipo = "User";
-        }
+        sql_actualizar = "UPDATE `usuarios` SET `nombres`='"+nombre+"',"
+                + "`apellidos`='"+apellidos+"',"
+                + "`usuario`='"+usuario+"',"
+                + "`pass`='"+pass+"',"
+                + "`status`="+status+","
+                + "`id_rol`="+id_rol+" "
+                + "WHERE id =" + id;
+               
+        System.out.println(sql_actualizar);
         
-        if("".equals(nombre)){
-            JOptionPane.showMessageDialog(rootPane, "No se a ingresado ningun dato!");
-            limpiarTabla();
+        try {
+            con = cn.getConection();
+            st = con.createStatement();
+            st.execute(sql_actualizar);
             
-        }else{
-            try {
-                
-                String query = "INSERT INTO `rol` (`id_rol`, `nombre`, tipo ) VALUES (NULL, '"+ nombre +"','"+ tipo +"');";
-                con = cn.getConection();
-                st = con.createStatement();
-                st.executeUpdate(query);
-                JOptionPane.showMessageDialog(rootPane, "Usuario Registrado!");
-                limpiarModelo();
-                limpiarText();
-                
-            } catch (HeadlessException | SQLException e) {
-                JOptionPane.showMessageDialog(rootPane, e);
-            }
+            System.out.println(sql_actualizar);
+            
+            limpiarModelo();
+            limpiarText();
+            JOptionPane.showMessageDialog(rootPane, "Usuario actualizado exitosamente!!");
+             
+             
+        } catch (SQLException e) {
+             JOptionPane.showMessageDialog(rootPane, e);
         }
         
+        limpiarModelo();
+    }
+    
+    //AGREGAR REGISTROS
+    public void agregarRegistro(String nombre, String apellidos, String usuario, String pass, int status, int id_rol){
+               
+        String sql_guardar;
         
-    }//fin metodo agregar*/
+        sql_guardar = "INSERT INTO usuarios VALUES (NULL,'"
+                + nombre + "', '"
+                + apellidos + "', '"
+                + usuario +"', '"
+                + pass + "', "
+                + status + ", "
+                + id_rol + ")";
+       
+        
+        try {
+            con = cn.getConection();
+            st = con.createStatement();
+            st.execute(sql_guardar);
+            
+            System.out.println(sql_guardar);
+            
+            limpiarModelo();
+            limpiarText();
+            JOptionPane.showMessageDialog(rootPane, "Usuario Registrado exitosamente!!");
+             
+             
+        } catch (SQLException e) {
+             JOptionPane.showMessageDialog(rootPane, e);
+        }
+        
+      
+    }//fin metodo agregar
     
       //ELIMINAR REGISTRO
     public void eliminarRegistro(){
     
         int id = Integer.parseInt(lbl_id.getText());
         
-        String sql = "delete from rol where id_rol=" + id;        
-        JOptionPane.showMessageDialog(rootPane, sql);
+        String sql_eliminar = "delete from usuarios where id = " + id; 
+        System.out.println(sql_eliminar);
+        JOptionPane.showMessageDialog(rootPane, sql_eliminar);
+        
                 try {
                     con = cn.getConection();
                     st = con.createStatement();
-                    st.executeUpdate(sql);
+                    st.executeUpdate(sql_eliminar);
                     JOptionPane.showMessageDialog(null, "Usuario Eliminado");
                     
-                    
                 } catch (HeadlessException | SQLException e) {
-                    
+                    JOptionPane.showMessageDialog(null, e);
                 }
                
         
@@ -342,7 +472,7 @@ public final class frmUsuarios extends javax.swing.JFrame {
             rs = st.executeQuery(query);
         
             Object[] usuarios = new Object[6];
-            modelo = (DefaultTableModel) tablaRoles.getModel();
+            modelo = (DefaultTableModel) tablaUsuarios.getModel();
             while (rs.next()) {
                 usuarios[0] = rs.getInt("id");
                 usuarios[1] = rs.getString("nombres");
@@ -354,42 +484,14 @@ public final class frmUsuarios extends javax.swing.JFrame {
                 
                 modelo.addRow(usuarios);
             }
-            tablaRoles.setModel(modelo);
+            tablaUsuarios.setModel(modelo);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, e);
         }
         
 
     }//fin metodo mostrar
-   
-   
-    
-/*
-    //ACTUALIZAR UN REGISTRO
-    public void actualizarRegistro(){
-        int id = Integer.parseInt(lbl_id.getText());
-        String nombre;
-        String  rol;
-        
-        nombre = txtDescrip.getText();
-        rol = jcbRol.getSelectedItem().toString();
-        
-        String sql = "UPDATE rol SET nombre  = '"+ nombre +"' WHERE id_rol =" + id;
-        JOptionPane.showMessageDialog(rootPane, sql);
-        try {
-                    con = cn.getConection();
-                    st = con.createStatement();
-                    st.executeUpdate(sql);
-                    JOptionPane.showMessageDialog(null, "Usuario actualizado correctamente");
-                    
-                    
-                } catch (HeadlessException | SQLException e) {
-                    
-                }
-        limpiarModelo();
-    }
-    */
-    
+         
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -442,7 +544,7 @@ public final class frmUsuarios extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcbEstatus;
     private javax.swing.JComboBox<String> jcbTipoUsuario;
     private javax.swing.JLabel lbl_id;
-    private javax.swing.JTable tablaRoles;
+    private javax.swing.JTable tablaUsuarios;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPass;
