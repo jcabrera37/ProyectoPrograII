@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author Julio Cabrera
@@ -196,9 +195,15 @@ public class frmLogin extends javax.swing.JFrame {
             }
             if (usuarioCorrecto !=null && pass!=null && pass.equals(passwordCorrecta)) {
                 JOptionPane.showMessageDialog(null, "Bienvenido");
+                frmMenu menu = new frmMenu();
+                menu.setVisible(true);
+                menu.setLocationRelativeTo(null);
+                this.setVisible(false);
+                limpiarText();
               }else 
                {
                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+                   limpiarText();
                }
              
             
@@ -219,7 +224,10 @@ public class frmLogin extends javax.swing.JFrame {
         
     }
     
-    
+    public void limpiarText(){
+        txtUser.setText("");
+        txtPass.setText("");
+    }
     
     
     /**
