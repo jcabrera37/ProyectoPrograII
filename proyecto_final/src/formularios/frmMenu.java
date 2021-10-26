@@ -9,6 +9,7 @@ import java.awt.Color;
 public class frmMenu extends javax.swing.JFrame {
     jpanelSelecciones panelSelecciones;
     jpanelUsuarios panelUsuarios;
+    jpanelRoles panelRoles;
     /**
      * Creates new form frmMenu
      */
@@ -17,15 +18,19 @@ public class frmMenu extends javax.swing.JFrame {
         
         panelSelecciones = new jpanelSelecciones();
         getContentPane().add(panelSelecciones);
-        panelSelecciones.setBounds(200,0,780,500);
+        panelSelecciones.setBounds(200,0,800,500);
         //panelSelecciones.setBackground(Color.WHITE);
         panelSelecciones.setVisible(false);
         
         panelUsuarios = new jpanelUsuarios();
         getContentPane().add(panelUsuarios);
-        panelUsuarios.setBounds(200,0,780,600);
-        panelUsuarios.setBackground(Color.LIGHT_GRAY);
+        panelUsuarios.setBounds(200,0,800,600);
         panelUsuarios.setVisible(false);
+        
+        panelRoles = new jpanelRoles();
+        getContentPane().add(panelRoles);
+        panelRoles.setBounds(200, 0, 800, 500);
+        panelRoles.setVisible(false);
         
         
     }
@@ -49,11 +54,13 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu9 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jbtnUsuarios = new javax.swing.JButton();
+        jbtnPaises = new javax.swing.JButton();
+        jbtnArea = new javax.swing.JButton();
+        jbtnRoles = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -61,10 +68,6 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu10 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -87,21 +90,63 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LogoFifa.png"))); // NOI18N
 
+        jbtnUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/users.png"))); // NOI18N
+        jbtnUsuarios.setText("Control de Usuarios");
+        jbtnUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jbtnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnUsuariosActionPerformed(evt);
+            }
+        });
+
+        jbtnPaises.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/world.png"))); // NOI18N
+        jbtnPaises.setText("Paises");
+        jbtnPaises.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        jbtnArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/trofeo.png"))); // NOI18N
+        jbtnArea.setText("Areas");
+        jbtnArea.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        jbtnRoles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rol.png"))); // NOI18N
+        jbtnRoles.setText("Control de Accesos");
+        jbtnRoles.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jbtnRoles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnRolesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbtnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(9, 9, 9))
+                    .addComponent(jbtnRoles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtnPaises, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbtnArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jbtnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbtnRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtnPaises, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbtnArea, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -115,23 +160,6 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu1.add(jMenuItem10);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Usuarios");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem2.setText("Gestión de Usuarios");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu2);
 
         jMenu11.setText("Jugadores");
 
@@ -162,19 +190,6 @@ public class frmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu10);
 
-        jMenu5.setText("Administración");
-
-        jMenuItem4.setText("Paises");
-        jMenu5.add(jMenuItem4);
-
-        jMenuItem5.setText("Areas");
-        jMenu5.add(jMenuItem5);
-
-        jMenuItem6.setText("jMenuItem6");
-        jMenu5.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu5);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -183,13 +198,13 @@ public class frmMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(698, Short.MAX_VALUE))
+                .addGap(0, 671, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 42, Short.MAX_VALUE))
+                .addGap(0, 36, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,19 +218,24 @@ public class frmMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        
-    }//GEN-LAST:event_jMenu2ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       panelUsuarios.setVisible(true);
-       panelSelecciones.setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         panelUsuarios.setVisible(false);
-       panelSelecciones.setVisible(true);
+        panelRoles.setVisible(false);
+        panelSelecciones.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jbtnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnUsuariosActionPerformed
+        panelUsuarios.setVisible(true);
+        panelRoles.setVisible(false);
+        panelSelecciones.setVisible(false);
+        
+    }//GEN-LAST:event_jbtnUsuariosActionPerformed
+
+    private void jbtnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRolesActionPerformed
+        panelUsuarios.setVisible(false);
+        panelRoles.setVisible(true);
+        panelSelecciones.setVisible(false);
+    }//GEN-LAST:event_jbtnRolesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,10 +278,8 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
@@ -271,14 +289,14 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbtnArea;
+    private javax.swing.JButton jbtnPaises;
+    private javax.swing.JButton jbtnRoles;
+    private javax.swing.JButton jbtnUsuarios;
     // End of variables declaration//GEN-END:variables
 }

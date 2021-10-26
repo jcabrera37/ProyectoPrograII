@@ -89,12 +89,12 @@ public class jpanelJugadores extends javax.swing.JPanel {
 
     private void tablaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaUsuariosMouseClicked
         int item = tablaUsuarios.getSelectedRow();
-
+/*
         lbl_id.setText(tablaUsuarios.getValueAt(item, 0).toString());
         txtNombre.setText(tablaUsuarios.getValueAt(item, 1).toString());
         txtApellido.setText(tablaUsuarios.getValueAt(item, 2).toString());
         txtUsuario.setText(tablaUsuarios.getValueAt(item, 3).toString());
-        txtPass.setText(tablaUsuarios.getValueAt(item, 4).toString());
+        txtPass.setText(tablaUsuarios.getValueAt(item, 4).toString());*/
     }//GEN-LAST:event_tablaUsuariosMouseClicked
 
 
