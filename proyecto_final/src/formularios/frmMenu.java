@@ -52,13 +52,19 @@ public class frmMenu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -110,16 +116,6 @@ public class frmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu10.setText("Encuentros");
-
-        jMenuItem8.setText("Nuevo Encuentro");
-        jMenu10.add(jMenuItem8);
-
-        jMenuItem9.setText("Ver Resultados");
-        jMenu10.add(jMenuItem9);
-
-        jMenuBar1.add(jMenu10);
-
         jMenu2.setText("Usuarios");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +133,13 @@ public class frmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu11.setText("Jugadores");
+
+        jMenuItem7.setText("Gestion de Jugadores");
+        jMenu11.add(jMenuItem7);
+
+        jMenuBar1.add(jMenu11);
+
         jMenu3.setText("Selecciones");
 
         jMenuItem3.setText("Gestion de selecciones");
@@ -148,6 +151,29 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu3.add(jMenuItem3);
 
         jMenuBar1.add(jMenu3);
+
+        jMenu10.setText("Encuentros");
+
+        jMenuItem8.setText("Nuevo Encuentro");
+        jMenu10.add(jMenuItem8);
+
+        jMenuItem9.setText("Ver Resultados");
+        jMenu10.add(jMenuItem9);
+
+        jMenuBar1.add(jMenu10);
+
+        jMenu5.setText("Administración");
+
+        jMenuItem4.setText("Paises");
+        jMenu5.add(jMenuItem4);
+
+        jMenuItem5.setText("Areas");
+        jMenu5.add(jMenuItem5);
+
+        jMenuItem6.setText("jMenuItem6");
+        jMenu5.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -231,9 +257,11 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
@@ -245,6 +273,10 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;

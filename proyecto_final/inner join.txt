@@ -1,0 +1,6 @@
+SELECT id_jugador, nombre, apellido, edad, Habilidades, pierna_habil, nacionalizado, camisola, tipo, seleccion, valor_mercado, patrocinador
+FROM jugadores
+INNER JOIN tipo_jugador
+on jugadores.id_tipo = tipo_jugador.id_tipo
+INNER JOIN seleccion
+on jugadores.id_seleccion = seleccion.id_seleccion;
