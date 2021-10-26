@@ -10,16 +10,18 @@ public class frmMenu extends javax.swing.JFrame {
     jpanelSelecciones panelSelecciones;
     jpanelUsuarios panelUsuarios;
     jpanelRoles panelRoles;
+    jpanelJugadores panelJugadores;
+    jpanelPaisess panelPaises;
+    
     /**
      * Creates new form frmMenu
      */
     public frmMenu() {
         initComponents();
-        
+        //panelSelecciones.setBackground(Color.WHITE);
         panelSelecciones = new jpanelSelecciones();
         getContentPane().add(panelSelecciones);
         panelSelecciones.setBounds(200,0,800,500);
-        //panelSelecciones.setBackground(Color.WHITE);
         panelSelecciones.setVisible(false);
         
         panelUsuarios = new jpanelUsuarios();
@@ -31,6 +33,25 @@ public class frmMenu extends javax.swing.JFrame {
         getContentPane().add(panelRoles);
         panelRoles.setBounds(200, 0, 800, 500);
         panelRoles.setVisible(false);
+        
+        panelJugadores = new jpanelJugadores();
+        getContentPane().add(panelJugadores);
+        panelJugadores.setBounds(200, 0, 800, 600);
+        panelJugadores.setVisible(false);
+        
+        /*
+        panelArea = new jpanelArea();
+        getContentPane().add(panelArea);
+        panelArea.setBounds(200,0,800,500);
+        //panelSelecciones.setBackground(Color.WHITE);
+        panelArea.setVisible(false);
+        
+        */
+        panelPaises = new jpanelPaisess();
+        getContentPane().add(panelPaises);
+        panelPaises.setBounds(200,0,800,500);
+        //panelSelecciones.setBackground(Color.WHITE);
+        panelPaises.setVisible(false);
         
         
     }
@@ -102,10 +123,20 @@ public class frmMenu extends javax.swing.JFrame {
         jbtnPaises.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/world.png"))); // NOI18N
         jbtnPaises.setText("Paises");
         jbtnPaises.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jbtnPaises.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnPaisesActionPerformed(evt);
+            }
+        });
 
         jbtnArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/trofeo.png"))); // NOI18N
         jbtnArea.setText("Areas");
         jbtnArea.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jbtnArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnAreaActionPerformed(evt);
+            }
+        });
 
         jbtnRoles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rol.png"))); // NOI18N
         jbtnRoles.setText("Control de Accesos");
@@ -164,6 +195,11 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu11.setText("Jugadores");
 
         jMenuItem7.setText("Gestion de Jugadores");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu11.add(jMenuItem7);
 
         jMenuBar1.add(jMenu11);
@@ -222,20 +258,48 @@ public class frmMenu extends javax.swing.JFrame {
         panelUsuarios.setVisible(false);
         panelRoles.setVisible(false);
         panelSelecciones.setVisible(true);
+        panelJugadores.setVisible(false);
+        panelPaises.setVisible(false);
+       
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jbtnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnUsuariosActionPerformed
         panelUsuarios.setVisible(true);
         panelRoles.setVisible(false);
         panelSelecciones.setVisible(false);
-        
+        panelJugadores.setVisible(false);
+        panelPaises.setVisible(false);
     }//GEN-LAST:event_jbtnUsuariosActionPerformed
 
     private void jbtnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRolesActionPerformed
         panelUsuarios.setVisible(false);
         panelRoles.setVisible(true);
         panelSelecciones.setVisible(false);
+        panelJugadores.setVisible(false);
+        panelPaises.setVisible(false);
     }//GEN-LAST:event_jbtnRolesActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        panelUsuarios.setVisible(false);
+        panelRoles.setVisible(false);
+        panelSelecciones.setVisible(false);
+        panelJugadores.setVisible(true);
+        panelPaises.setVisible(false);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jbtnPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPaisesActionPerformed
+         panelUsuarios.setVisible(false);
+        panelRoles.setVisible(false);
+        panelSelecciones.setVisible(false);
+        panelJugadores.setVisible(false);
+        panelPaises.setVisible(true);
+         
+       
+    }//GEN-LAST:event_jbtnPaisesActionPerformed
+
+    private void jbtnAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAreaActionPerformed
+        
+    }//GEN-LAST:event_jbtnAreaActionPerformed
 
     /**
      * @param args the command line arguments

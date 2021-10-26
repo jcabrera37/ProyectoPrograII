@@ -1,23 +1,76 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package formularios;
+
+import clases.ConexionBD;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Lab2
+ * @author Julio Cabrera
  */
 public class jpanelJugadores extends javax.swing.JPanel {
+     ConexionBD cn = new ConexionBD(); 
+    DefaultTableModel modelo; // EL MODELO PARA PODER TRABAJAR CON EL JTABLE
+    Connection con;
+    Statement st;
+    ResultSet rs;
 
     /**
      * Creates new form jpanelJugadores
      */
     public jpanelJugadores() {
         initComponents();
+         mostrarDatos();
     }
 
+    
+    
+     //MOSTRAR REGISTROS
+    public void mostrarDatos(){
+        String query = "SELECT id_jugador, nombre, apellidos, edad, Habilidades, pierna_habil, nacionalizado, camisola, tipo, seleccion, valor_mercado, marca_patrocinador\n" +
+                        "FROM jugador\n" +
+                        "INNER JOIN tipo_jugador\n" +
+                        "on jugador.id_tipo = tipo_jugador.id_tipo\n" +
+                        "INNER JOIN seleccion\n" +
+                        "on jugador.id_seleccion = seleccion.id_seleccion;";
+        
+         try {
+            con = cn.getConection();
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+        
+            Object[] usuarios = new Object[12];
+            modelo = (DefaultTableModel) tablaUsuarios.getModel();
+            while (rs.next()) {
+                usuarios[0] = rs.getInt("id_jugador");
+                usuarios[1] = rs.getString("nombre");
+                usuarios[2] = rs.getString("apellidos");
+                usuarios[3] = rs.getString("edad");
+                usuarios[4] = rs.getString("Habilidades");
+                usuarios[5] = rs.getString("pierna_habil");
+                usuarios[6] = rs.getString("nacionalizado");
+                usuarios[7] = rs.getString("camisola");
+                usuarios[8] = rs.getString("tipo");
+                usuarios[9] = rs.getString("seleccion");
+                usuarios[10] = rs.getString("valor_mercado");
+                usuarios[11] = rs.getString("marca_patrocinador");
+                
+                
+                modelo.addRow(usuarios);
+            }
+            tablaUsuarios.setModel(modelo);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+
+    }//fin metodo mostrar
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,11 +123,11 @@ public class jpanelJugadores extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(571, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(273, 273, 273)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

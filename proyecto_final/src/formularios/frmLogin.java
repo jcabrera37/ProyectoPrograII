@@ -170,7 +170,7 @@ public class frmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnIngresarActionPerformed
 
     private void jbtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnCancelarActionPerformed
-        this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_jbtnCancelarActionPerformed
 
     
