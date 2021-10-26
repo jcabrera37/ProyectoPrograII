@@ -13,18 +13,20 @@ import javax.swing.table.DefaultTableModel;
  * @author Julio Cabrera
  */
 public class jpanelJugadores extends javax.swing.JPanel {
-     ConexionBD cn = new ConexionBD(); 
+    ConexionBD cn = new ConexionBD(); 
     DefaultTableModel modelo; // EL MODELO PARA PODER TRABAJAR CON EL JTABLE
     Connection con;
     Statement st;
     ResultSet rs;
-
+    
     /**
      * Creates new form jpanelJugadores
      */
     public jpanelJugadores() {
         initComponents();
          mostrarDatos();
+         mostrarComboSelecciones();
+         
     }
 
     
@@ -71,6 +73,26 @@ public class jpanelJugadores extends javax.swing.JPanel {
     }//fin metodo mostrar
     
     
+    //mostrar datos en combobox
+    public void mostrarComboSelecciones(){
+        String query = "SELECT seleccion FROM `seleccion`;";
+        
+         try {
+            con = cn.getConection();
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            
+             while (rs.next()) {
+                 jcbSelecciones.addItem((String) rs.getObject("seleccion"));
+                 
+             }
+                       
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,6 +105,8 @@ public class jpanelJugadores extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaUsuarios = new javax.swing.JTable();
+        jcbSelecciones = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(800, 500));
 
@@ -119,14 +143,26 @@ public class jpanelJugadores extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tablaUsuarios);
 
+        jcbSelecciones.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Elija selección a mostrar:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(273, 273, 273)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(273, 273, 273)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbSelecciones, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -134,10 +170,16 @@ public class jpanelJugadores extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbSelecciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
+
+        jcbSelecciones.getAccessibleContext().setAccessibleName("jcb");
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaUsuariosMouseClicked
@@ -153,7 +195,9 @@ public class jpanelJugadores extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcbSelecciones;
     private javax.swing.JTable tablaUsuarios;
     // End of variables declaration//GEN-END:variables
 }

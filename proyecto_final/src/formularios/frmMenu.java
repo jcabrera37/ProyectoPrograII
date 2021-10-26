@@ -12,7 +12,7 @@ public class frmMenu extends javax.swing.JFrame {
     jpanelRoles panelRoles;
     jpanelJugadores panelJugadores;
     jpanelPaisess panelPaises;
-    
+    jpanelAreas panelAreas;
     /**
      * Creates new form frmMenu
      */
@@ -39,14 +39,14 @@ public class frmMenu extends javax.swing.JFrame {
         panelJugadores.setBounds(200, 0, 800, 600);
         panelJugadores.setVisible(false);
         
-        /*
-        panelArea = new jpanelArea();
-        getContentPane().add(panelArea);
-        panelArea.setBounds(200,0,800,500);
-        //panelSelecciones.setBackground(Color.WHITE);
-        panelArea.setVisible(false);
         
-        */
+        panelAreas = new jpanelAreas();
+        getContentPane().add(panelAreas);
+        panelAreas.setBounds(200,0,800,500);
+        //panelSelecciones.setBackground(Color.WHITE);
+        panelAreas.setVisible(false);
+        
+        
         panelPaises = new jpanelPaisess();
         getContentPane().add(panelPaises);
         panelPaises.setBounds(200,0,800,500);
@@ -161,8 +161,7 @@ public class frmMenu extends javax.swing.JFrame {
                         .addGap(9, 9, 9))
                     .addComponent(jbtnRoles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbtnPaises, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbtnArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jbtnArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,13 +233,13 @@ public class frmMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 671, Short.MAX_VALUE))
+                .addGap(0, 700, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(0, 14, Short.MAX_VALUE))
         );
 
         pack();
@@ -260,6 +259,7 @@ public class frmMenu extends javax.swing.JFrame {
         panelSelecciones.setVisible(true);
         panelJugadores.setVisible(false);
         panelPaises.setVisible(false);
+        panelAreas.setVisible(false);
        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
@@ -269,6 +269,7 @@ public class frmMenu extends javax.swing.JFrame {
         panelSelecciones.setVisible(false);
         panelJugadores.setVisible(false);
         panelPaises.setVisible(false);
+        panelAreas.setVisible(false);
     }//GEN-LAST:event_jbtnUsuariosActionPerformed
 
     private void jbtnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRolesActionPerformed
@@ -277,6 +278,7 @@ public class frmMenu extends javax.swing.JFrame {
         panelSelecciones.setVisible(false);
         panelJugadores.setVisible(false);
         panelPaises.setVisible(false);
+        panelAreas.setVisible(false);
     }//GEN-LAST:event_jbtnRolesActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -285,20 +287,26 @@ public class frmMenu extends javax.swing.JFrame {
         panelSelecciones.setVisible(false);
         panelJugadores.setVisible(true);
         panelPaises.setVisible(false);
+        panelAreas.setVisible(false);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jbtnPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPaisesActionPerformed
-         panelUsuarios.setVisible(false);
+        panelUsuarios.setVisible(false);
         panelRoles.setVisible(false);
         panelSelecciones.setVisible(false);
         panelJugadores.setVisible(false);
         panelPaises.setVisible(true);
-         
+        panelAreas.setVisible(false);
        
     }//GEN-LAST:event_jbtnPaisesActionPerformed
 
     private void jbtnAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAreaActionPerformed
-        
+        panelUsuarios.setVisible(false);
+        panelRoles.setVisible(false);
+        panelSelecciones.setVisible(false);
+        panelJugadores.setVisible(false);
+        panelPaises.setVisible(false);
+        panelAreas.setVisible(true);
     }//GEN-LAST:event_jbtnAreaActionPerformed
 
     /**
