@@ -57,7 +57,7 @@ public class frmCreditos extends javax.swing.JFrame {
         jLabel6.setText("3090-19-8985     Erick Daniel García Ixcot");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("3090-15-13986     Julio César Cabrera López");
+        jLabel7.setText("3090-18-15291     Abner ");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/jugador.png"))); // NOI18N
