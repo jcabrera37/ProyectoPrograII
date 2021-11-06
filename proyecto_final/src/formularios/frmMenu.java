@@ -1,6 +1,5 @@
 package formularios;
 
-import java.awt.Color;
 
 /**
  *
@@ -11,8 +10,11 @@ public class frmMenu extends javax.swing.JFrame {
     jpanelUsuarios panelUsuarios;
     jpanelRoles panelRoles;
     jpanelJugadores panelJugadores;
-    jpanelPaisess panelPaises;
     jpanelAreas panelAreas;
+    jpanelPais panelPaises;
+    jpanelEncuentro panelEncuentro;
+    banner panelBanner;
+    jpanelResultados panelResultados;
     /**
      * Creates new form frmMenu
      */
@@ -21,7 +23,7 @@ public class frmMenu extends javax.swing.JFrame {
         //panelSelecciones.setBackground(Color.WHITE);
         panelSelecciones = new jpanelSelecciones();
         getContentPane().add(panelSelecciones);
-        panelSelecciones.setBounds(200,0,800,500);
+        panelSelecciones.setBounds(200,0,850,800);
         panelSelecciones.setVisible(false);
         
         panelUsuarios = new jpanelUsuarios();
@@ -47,11 +49,27 @@ public class frmMenu extends javax.swing.JFrame {
         panelAreas.setVisible(false);
         
         
-        panelPaises = new jpanelPaisess();
+        panelPaises = new jpanelPais();
         getContentPane().add(panelPaises);
         panelPaises.setBounds(200,0,800,500);
         //panelSelecciones.setBackground(Color.WHITE);
         panelPaises.setVisible(false);
+        
+        
+        panelEncuentro = new jpanelEncuentro();
+        getContentPane().add(panelEncuentro);
+        panelEncuentro.setBounds(200,0,850,650);
+        panelEncuentro.setVisible(false);
+        
+        panelBanner = new banner();
+        getContentPane().add(panelBanner);
+        panelBanner.setBounds(25, 700, 1128, 75);
+        panelBanner.setVisible(true);
+        
+        panelResultados = new jpanelResultados();
+        getContentPane().add(panelResultados);
+        panelResultados.setBounds(200, 0, 850, 650);
+        panelResultados.setVisible(false);
         
         
     }
@@ -84,11 +102,14 @@ public class frmMenu extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -107,7 +128,7 @@ public class frmMenu extends javax.swing.JFrame {
         jMenuBar3.add(jMenu9);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1100, 800));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/LogoFifa.png"))); // NOI18N
 
@@ -201,6 +222,14 @@ public class frmMenu extends javax.swing.JFrame {
         });
         jMenu11.add(jMenuItem7);
 
+        jMenuItem2.setText("Tipos de Jugadores");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem2);
+
         jMenuBar1.add(jMenu11);
 
         jMenu3.setText("Selecciones");
@@ -218,12 +247,34 @@ public class frmMenu extends javax.swing.JFrame {
         jMenu10.setText("Encuentros");
 
         jMenuItem8.setText("Nuevo Encuentro");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu10.add(jMenuItem8);
 
         jMenuItem9.setText("Ver Resultados");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu10.add(jMenuItem9);
 
         jMenuBar1.add(jMenu10);
+
+        jMenu2.setText("Acerca");
+
+        jMenuItem4.setText("Créditos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -233,13 +284,13 @@ public class frmMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 700, Short.MAX_VALUE))
+                .addGap(0, 701, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addGap(0, 292, Short.MAX_VALUE))
         );
 
         pack();
@@ -260,6 +311,8 @@ public class frmMenu extends javax.swing.JFrame {
         panelJugadores.setVisible(false);
         panelPaises.setVisible(false);
         panelAreas.setVisible(false);
+        panelEncuentro.setVisible(false);
+        panelResultados.setVisible(false);
        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
@@ -270,6 +323,9 @@ public class frmMenu extends javax.swing.JFrame {
         panelJugadores.setVisible(false);
         panelPaises.setVisible(false);
         panelAreas.setVisible(false);
+        panelEncuentro.setVisible(false);
+        panelResultados.setVisible(false);
+        
     }//GEN-LAST:event_jbtnUsuariosActionPerformed
 
     private void jbtnRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRolesActionPerformed
@@ -279,6 +335,9 @@ public class frmMenu extends javax.swing.JFrame {
         panelJugadores.setVisible(false);
         panelPaises.setVisible(false);
         panelAreas.setVisible(false);
+        panelEncuentro.setVisible(false);
+        panelResultados.setVisible(false);
+        
     }//GEN-LAST:event_jbtnRolesActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -288,6 +347,8 @@ public class frmMenu extends javax.swing.JFrame {
         panelJugadores.setVisible(true);
         panelPaises.setVisible(false);
         panelAreas.setVisible(false);
+        panelEncuentro.setVisible(false);
+        panelResultados.setVisible(false);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jbtnPaisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPaisesActionPerformed
@@ -297,6 +358,8 @@ public class frmMenu extends javax.swing.JFrame {
         panelJugadores.setVisible(false);
         panelPaises.setVisible(true);
         panelAreas.setVisible(false);
+        panelEncuentro.setVisible(false);
+        panelResultados.setVisible(false);
        
     }//GEN-LAST:event_jbtnPaisesActionPerformed
 
@@ -307,7 +370,45 @@ public class frmMenu extends javax.swing.JFrame {
         panelJugadores.setVisible(false);
         panelPaises.setVisible(false);
         panelAreas.setVisible(true);
+        panelEncuentro.setVisible(false);
+        panelResultados.setVisible(false);
+       
     }//GEN-LAST:event_jbtnAreaActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        frmTipoJugador tipo = new frmTipoJugador();
+        tipo.setVisible(true);
+        tipo.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        panelUsuarios.setVisible(false);
+        panelRoles.setVisible(false);
+        panelSelecciones.setVisible(false);
+        panelJugadores.setVisible(false);
+        panelPaises.setVisible(false);
+        panelAreas.setVisible(false);
+        panelEncuentro.setVisible(true);
+        panelResultados.setVisible(false);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        panelUsuarios.setVisible(false);
+        panelRoles.setVisible(false);
+        panelSelecciones.setVisible(false);
+        panelJugadores.setVisible(false);
+        panelPaises.setVisible(false);
+        panelAreas.setVisible(false);
+        panelEncuentro.setVisible(false);
+        panelResultados.setVisible(true);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        frmCreditos creditos = new frmCreditos();
+        creditos.setVisible(true);
+        creditos.setLocationRelativeTo(null);
+        
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -350,6 +451,7 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu6;
@@ -361,7 +463,9 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;

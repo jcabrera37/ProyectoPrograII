@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author Julio Cabrera
  */
-public class jpanelSelecciones extends javax.swing.JPanel {
+public class jpanelSelecciones_vista extends javax.swing.JPanel {
 
     /**
      * Creates new form jpanelUsuario
@@ -28,11 +28,12 @@ public class jpanelSelecciones extends javax.swing.JPanel {
     int idPais =0;
     int idArea =0;
     
-    public jpanelSelecciones() {
+    public jpanelSelecciones_vista() {
         initComponents();
         
         mostrarComboSelecciones();
         mostrarArea();
+        jPanel1.setVisible(false);
         
         VerTabla vseleccion = new VerTabla();
         vseleccion.visualizar_tabla_selecciones(tablaSelecciones);
