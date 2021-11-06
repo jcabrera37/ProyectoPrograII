@@ -57,7 +57,7 @@ public class frmCreditos extends javax.swing.JFrame {
         jLabel6.setText("3090-19-8985     Erick Daniel García Ixcot");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("3090-18-15291     Abner ");
+        jLabel7.setText("3090-18-15291     Abner Adonias Tahual Lucas");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/jugador.png"))); // NOI18N
@@ -92,7 +92,7 @@ public class frmCreditos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
